@@ -263,23 +263,6 @@ function chunkArray(array, chunkSize) {
     return chunks;
 }
 
-// questionsSets = [
-//     [
-//         { question: "Thủ đô của Việt Nam là gì?", answer: "Hà Nội" },
-//         { question: "1 + 1 = ?", answer: "2" },
-//         { question: "Màu gì được tạo ra khi trộn màu xanh và màu vàng?", answer: "Xanh lá cây" },
-//         { question: "Hành tinh nào gần mặt trời nhất?", answer: "Sao Thủy" },
-//         { question: "Nguồn gốc của món phở là từ đâu?", answer: "Việt Nam" }
-//     ],
-//     [
-//         { question: "Ai đã viết truyện Kiều?", answer: "Nguyễn Du" },
-//         { question: "Biển nào lớn nhất thế giới?", answer: "Thái Bình Dương" },
-//         { question: "Ngọn núi cao nhất Việt Nam?", answer: "Fansipan" },
-//         { question: "Thành phố nào đông dân nhất Việt Nam?", answer: "Thành phố Hồ Chí Minh" },
-//         { question: "Loài vật nào là biểu tượng của sự khôn ngoan?", answer: "Cú mèo" }
-//     ]
-// ];
-
 let currentQuestionSet = 0;
 let questions = [];
 let answers = [];
@@ -409,6 +392,8 @@ function selectQuestion(id) {
     selectedQuestion = id;
     document.getElementById(selectedQuestion).classList.add('selected');
     document.getElementById(selectedQuestion).classList.remove('matchedfalse');
+    const text = document.getElementById(selectedQuestion).innerText;  
+    tts.speak(text);
     
     // Kiểm tra nếu cả câu hỏi và đáp án đều được chọn
     checkMatch();
